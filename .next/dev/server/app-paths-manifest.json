@@ -1,0 +1,7 @@
+{
+  "/(public)/book/page": "app/(public)/book/page.js",
+  "/(public)/contact/page": "app/(public)/contact/page.js",
+  "/(public)/page": "app/(public)/page.js",
+  "/(public)/reviews/page": "app/(public)/reviews/page.js",
+  "/(public)/supported-vehicles/page": "app/(public)/supported-vehicles/page.js"
+}
