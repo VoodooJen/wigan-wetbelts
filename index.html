@@ -3306,55 +3306,58 @@ body.has-webgl .ts-belt-svg-fallback{ display:none }
    blue and into a deep royal blue at the foot, with a soft halo
    underglow and a slow shimmer sweep that catches across the
    letters once every ~7 seconds. */
+/* ════════════════════════════════════════════════════════════════
+   HERO WORDMARK — PERFORMANCE / ENGINEERING BRAND VIBE
+   ----------------------------------------------------------------
+   Swapped from the Bodoni italic couture look to a confident,
+   architectural sans wordmark — the kind of typography you'd see
+   on AMG / M-Performance / Porsche specialist signage. Bold,
+   uppercase, wide-tracked, white on dark with a soft blue ambient
+   halo behind. A vertical accent bar replaces the curly italic
+   character — feels engineering / Apple Pro rather than fashion. */
 .hero-h1--timing{
-  font-family:'Bodoni Moda','Outfit','Manrope',serif;
+  font-family:'Outfit','Manrope',sans-serif;
   position:relative;
+  text-align:center;
 }
 .hero-h1-brand{
   display:block;
-  font-family:'Bodoni Moda',serif;
-  font-style:italic;
-  font-weight:500;
-  font-size:clamp(2.8rem, 7.6vw, 5.8rem);
-  letter-spacing:-.015em;
+  font-family:'Outfit','Manrope',sans-serif;
+  font-style:normal;
+  font-weight:800;
+  font-size:clamp(2.2rem, 6.4vw, 4.6rem);
+  letter-spacing:.04em;       /* wide architectural tracking */
+  text-transform:uppercase;
   line-height:1;
-  padding-bottom:.06em;
-  /* Pure white wordmark — no silver fall-off, the letterforms read
-     as a crisp couture serif against the dark hero. A subtle blue
-     ambient halo still sits behind to tie it to the brand. */
+  padding-bottom:.04em;
   color:#ffffff;
   background:none;
   -webkit-background-clip:initial;background-clip:initial;
   filter:
-    drop-shadow(0 2px 4px rgba(0,0,0,.55))
-    drop-shadow(0 0 28px rgba(255,255,255,.25))
-    drop-shadow(0 0 60px rgba(93,169,255,.18));
+    drop-shadow(0 2px 4px rgba(0,0,0,.6))
+    drop-shadow(0 0 32px rgba(255,255,255,.18))
+    drop-shadow(0 0 80px rgba(93,169,255,.18));
   position:relative;
 }
-/* Couture swoosh — a brand-blue highlight band glides diagonally
-   across the white wordmark on a continuous linear loop. The band
-   is narrow inside a wide invisible track, so the visible sweep is
-   brief and the in-between is just empty space — no jarring
-   snap-back, no pause-then-jump. Linear timing keeps the motion
-   silky-smooth on every frame. */
+/* Slow blue track-light sweep across the wordmark. Continuous
+   linear motion, wide invisible track, no snap-back. */
 .hero-h1-brand::before{
   content:attr(data-text);
   position:absolute;inset:0;
   background:linear-gradient(115deg,
     transparent 0%,
     transparent 44%,
-    rgba(147,197,253,.5) 48%,
-    rgba(93,169,255,.92) 50%,
-    rgba(147,197,253,.5) 52%,
+    rgba(147,197,253,.45) 48%,
+    rgba(93,169,255,.9) 50%,
+    rgba(147,197,253,.45) 52%,
     transparent 56%,
     transparent 100%);
   background-size:420% 100%;
   background-position:120% 0;
   background-repeat:no-repeat;
   -webkit-background-clip:text;background-clip:text;color:transparent;
-  animation:hero-shimmer 5.5s linear infinite;
+  animation:hero-shimmer 7s linear infinite;
   pointer-events:none;
-  /* Hint the browser to promote the layer so the sweep stays smooth. */
   will-change:background-position;
 }
 @keyframes hero-shimmer{
@@ -3362,48 +3365,36 @@ body.has-webgl .ts-belt-svg-fallback{ display:none }
   100% { background-position:-220% 0 }
 }
 
-/* Hairline accent ribbon directly beneath the wordmark. */
+/* Vertical accent bar between the wordmark and the subhead —
+   the "spec divider" look from premium product pages. */
 .hero-h1-accent-rule{
   display:block;
-  width:120px;height:1px;
-  margin:18px auto 22px;
-  background:linear-gradient(90deg, transparent, rgba(93,169,255,.85), transparent);
+  width:1px;height:36px;
+  margin:18px auto 18px;
+  background:linear-gradient(180deg, rgba(93,169,255,0), rgba(93,169,255,.9), rgba(93,169,255,0));
   position:relative;
 }
-.hero-h1-accent-rule::before{
-  content:"";position:absolute;left:50%;top:50%;
-  width:6px;height:6px;
-  margin:-3px 0 0 -3px;
-  border-radius:50%;
-  background:#5da9ff;
-  box-shadow:0 0 12px #5da9ff, 0 0 24px rgba(93,169,255,.5);
-}
 
-/* Sub-heading — clean engineering label, tracked + slim. */
+/* Sub-heading — engineering callout. Tighter, more confident,
+   slightly larger so it reads alongside the bigger wordmark. */
 .hero-h1-sub{
   display:block;
   margin-top:.2em;
   font-family:'Outfit','Manrope',sans-serif;
-  font-size:clamp(.74rem, 1.05vw, .9rem);
+  font-size:clamp(.78rem, 1.15vw, .98rem);
   font-weight:500;
-  letter-spacing:.45em;
+  letter-spacing:.5em;
   text-transform:uppercase;
-  color:#a7c8f4;
-  filter:drop-shadow(0 0 16px rgba(93,169,255,.4));
+  color:#c8d8ec;
+  filter:drop-shadow(0 0 18px rgba(93,169,255,.35));
   position:relative;
-  padding-left:48px;padding-right:48px;
+  padding-left:0;padding-right:0;
 }
-.hero-h1-sub::before, .hero-h1-sub::after{
-  content:"";position:absolute;top:50%;
-  width:34px;height:1px;
-  background:linear-gradient(90deg, transparent, rgba(93,169,255,.6), transparent);
-}
-.hero-h1-sub::before{left:0}
-.hero-h1-sub::after{right:0}
+.hero-h1-sub::before, .hero-h1-sub::after{ content:none; }
 @media (max-width:560px){
-  .hero-h1-sub{padding-left:28px;padding-right:28px;letter-spacing:.32em}
-  .hero-h1-sub::before, .hero-h1-sub::after{width:20px}
-  .hero-h1-accent-rule{width:90px;margin:14px auto 18px}
+  .hero-h1-brand{letter-spacing:.025em}
+  .hero-h1-sub{letter-spacing:.32em;font-size:.7rem}
+  .hero-h1-accent-rule{height:28px;margin:14px auto 14px}
 }
 
 /* Depth and luxury polish — extra dark vignette at the hero edges
@@ -4403,7 +4394,9 @@ body.has-webgl .ts-belt-svg-fallback{ display:none }
        chain block further down (1.25 / 1.1 Ti-VCT / 1.5 EcoBoost /
        1.6 EcoBoost / 2.0 GDI / 2.3 EcoBoost / 1.5 TDCi / 2.5 Volvo). */
 
-    /* ===== FORD FIESTA — Belt / Wet Belt engines ===== */
+    /* ===== FORD FIESTA — Belt / Wet Belt engines =====
+       Workshop pricing standardised at £957 + VAT across every
+       Fiesta timing/wet belt engine, per Wigan Wetbelts spec. */
 
     /* Fiesta 1.0 EcoBoost (Fox wet belt) — Mk6 facelift + Mk7. */
     { service:'Belt / Wet Belt Replacement', make:'Ford', models:['Fiesta'],
@@ -4413,46 +4406,48 @@ body.has-webgl .ts-belt-svg-fallback{ display:none }
       engines:['1.0 EcoBoost Hybrid'], yearFrom:2020, yearTo:2023, from:957 },
     /* Fiesta 1.4 TDCi Diesel (Duratorq DLD-414) — Mk6 only. */
     { service:'Belt / Wet Belt Replacement', make:'Ford', models:['Fiesta'],
-      engines:['1.4 TDCi'], yearFrom:2008, yearTo:2012, from:640, noFloor:true },
+      engines:['1.4 TDCi'], yearFrom:2008, yearTo:2012, from:957 },
     /* Fiesta 1.6 TDCi Diesel (Peugeot DV6 dry belt) — Mk6. */
     { service:'Belt / Wet Belt Replacement', make:'Ford', models:['Fiesta'],
-      engines:['1.6 TDCi'], yearFrom:2008, yearTo:2017, from:680, noFloor:true },
+      engines:['1.6 TDCi'], yearFrom:2008, yearTo:2017, from:957 },
 
-    /* ===== FORD FOCUS — Belt / Wet Belt engines ===== */
+    /* ===== FORD FOCUS — Belt / Wet Belt engines =====
+       Workshop pricing standardised at £1020 + VAT across every
+       Focus timing/wet belt engine, per Wigan Wetbelts spec. */
 
     /* Focus 1.0 EcoBoost (Fox wet belt) — Mk3 + Mk4. */
     { service:'Belt / Wet Belt Replacement', make:'Ford', models:['Focus'],
       engines:['1.0 EcoBoost'], yearFrom:2012, yearTo:2025, from:1020 },
     /* Focus 1.0 EcoBoost Hybrid mHEV — Mk4 only. */
     { service:'Belt / Wet Belt Replacement', make:'Ford', models:['Focus'],
-      engines:['1.0 EcoBoost Hybrid'], yearFrom:2020, yearTo:2025, from:1100 },
+      engines:['1.0 EcoBoost Hybrid'], yearFrom:2020, yearTo:2025, from:1020 },
     /* Focus 1.5 EcoBlue Diesel (wet belt + lower oil pump). */
     { service:'Belt / Wet Belt Replacement', make:'Ford', models:['Focus'],
-      engines:['1.5 EcoBlue'], yearFrom:2018, yearTo:2025, from:1050, to:1150 },
+      engines:['1.5 EcoBlue'], yearFrom:2018, yearTo:2025, from:1020 },
     /* Focus Mk2 1.4 Duratec Petrol — entry-level. */
     { service:'Belt / Wet Belt Replacement', make:'Ford', models:['Focus'],
-      engines:['1.4 Duratec'], yearFrom:2008, yearTo:2011, from:580, noFloor:true },
+      engines:['1.4 Duratec'], yearFrom:2008, yearTo:2011, from:1020 },
     /* Focus 1.6 Duratec Ti-VCT Petrol — Mk2 (chain on Mk3). */
     { service:'Belt / Wet Belt Replacement', make:'Ford', models:['Focus'],
-      engines:['1.6 Duratec Ti-VCT'], yearFrom:2008, yearTo:2011, from:640, noFloor:true },
+      engines:['1.6 Duratec Ti-VCT'], yearFrom:2008, yearTo:2011, from:1020 },
     /* Focus 1.6 Duratec Petrol (non-VCT). */
     { service:'Belt / Wet Belt Replacement', make:'Ford', models:['Focus'],
-      engines:['1.6 Duratec'], yearFrom:2008, yearTo:2011, from:620, noFloor:true },
+      engines:['1.6 Duratec'], yearFrom:2008, yearTo:2011, from:1020 },
     /* Focus 1.8 Duratec HE Petrol — Mk2. */
     { service:'Belt / Wet Belt Replacement', make:'Ford', models:['Focus'],
-      engines:['1.8 Duratec'], yearFrom:2008, yearTo:2011, from:680, noFloor:true },
+      engines:['1.8 Duratec'], yearFrom:2008, yearTo:2011, from:1020 },
     /* Focus 2.0 Duratec HE Petrol — Mk2. */
     { service:'Belt / Wet Belt Replacement', make:'Ford', models:['Focus'],
-      engines:['2.0 Duratec'], yearFrom:2008, yearTo:2011, from:720, noFloor:true },
+      engines:['2.0 Duratec'], yearFrom:2008, yearTo:2011, from:1020 },
     /* Focus 1.6 TDCi Diesel (Peugeot DV6 dry belt) — Mk2 + Mk3 pre-EcoBlue. */
     { service:'Belt / Wet Belt Replacement', make:'Ford', models:['Focus'],
-      engines:['1.6 TDCi'], yearFrom:2008, yearTo:2014, from:720, noFloor:true },
+      engines:['1.6 TDCi'], yearFrom:2008, yearTo:2014, from:1020 },
     /* Focus 1.8 TDCi Diesel (Duratorq Endura) — Mk2. */
     { service:'Belt / Wet Belt Replacement', make:'Ford', models:['Focus'],
-      engines:['1.8 TDCi'], yearFrom:2008, yearTo:2011, from:780 },
+      engines:['1.8 TDCi'], yearFrom:2008, yearTo:2011, from:1020 },
     /* Focus 2.0 TDCi Diesel (Duratorq DW10) — Mk2 + Mk3 pre-EcoBlue. */
     { service:'Belt / Wet Belt Replacement', make:'Ford', models:['Focus'],
-      engines:['2.0 TDCi'], yearFrom:2008, yearTo:2017, from:820 },
+      engines:['2.0 TDCi'], yearFrom:2008, yearTo:2017, from:1020 },
 
     /* ===== Other Ford passenger + light commercial belt models ===== */
 
@@ -4476,17 +4471,21 @@ body.has-webgl .ts-belt-svg-fallback{ display:none }
     /* Galaxy / S-Max 2.0 TDCi (Duratorq belt). */
     { service:'Belt / Wet Belt Replacement', make:'Ford', models:['Galaxy','S Max'],
       engines:['2.0 TDCi'], yearFrom:2008, yearTo:2014, from:820 },
+    /* ===== Ford Transit family — flat £957 + VAT =====
+       Workshop pricing standardised at £957 + VAT across every
+       Transit-family timing/wet belt engine, per Wigan Wetbelts spec. */
+
     /* Transit Courier 1.0 EcoBoost wet belt. */
     { service:'Belt / Wet Belt Replacement', make:'Ford', models:['Transit Courier'],
-      engines:['1.0 EcoBoost'], yearFrom:2014, yearTo:2026, from:1100 },
+      engines:['1.0 EcoBoost'], yearFrom:2014, yearTo:2026, from:957 },
     /* Transit Connect 1.5 EcoBlue wet belt. */
     { service:'Belt / Wet Belt Replacement', make:'Ford', models:['Transit Connect'],
-      engines:['1.5 EcoBlue'], yearFrom:2018, yearTo:2026, from:1050, to:1150 },
+      engines:['1.5 EcoBlue'], yearFrom:2018, yearTo:2026, from:957 },
     /* Transit Custom 2.0 EcoBlue FWD / RWD. */
     { service:'Belt / Wet Belt Replacement', make:'Ford', models:['Transit Custom FWD'],
-      engines:['2.0 EcoBlue'], yearFrom:2016, yearTo:2026, from:850 },
+      engines:['2.0 EcoBlue'], yearFrom:2016, yearTo:2026, from:957 },
     { service:'Belt / Wet Belt Replacement', make:'Ford', models:['Transit Custom RWD'],
-      engines:['2.0 EcoBlue'], yearFrom:2016, yearTo:2026, from:959 },
+      engines:['2.0 EcoBlue'], yearFrom:2016, yearTo:2026, from:957 },
     /* Ranger 2.0 EcoBlue (wet belt 2019+). */
     { service:'Belt / Wet Belt Replacement', make:'Ford', models:['Ranger'],
       engines:['2.0 EcoBlue'], yearFrom:2019, yearTo:2026, from:1050 },
@@ -4511,11 +4510,17 @@ body.has-webgl .ts-belt-svg-fallback{ display:none }
        Chain: 1KR-FE, EP3/EP6 Prince, EP6 THP, DT17/DT20 V6
        ============================================================ */
 
-    /* ----- 1.1 / 1.4 / 1.6 TU 8V/16V Petrol — £590 ----- */
+    /* ===== Peugeot Belt / Wet Belt — £680 to £750 + VAT range =====
+       Workshop pricing standardised across most Peugeot models +
+       engines, per Wigan Wetbelts spec. Commercials (Boxer/Expert)
+       remain on their higher dealer-premium rate further down.
+       noFloor:true bypasses any legacy wet-belt floor clamp. */
+
+    /* ----- 1.1 / 1.4 / 1.6 TU 8V/16V Petrol — £680 ----- */
     { service:'Belt / Wet Belt Replacement', make:'Peugeot',
       models:['106','206','306','307'],
       engines:['1.1 TU Petrol','1.4 TU Petrol','1.6 TU Petrol'],
-      yearFrom:2008, yearTo:2012, from:590, noFloor:true },
+      yearFrom:2008, yearTo:2012, from:680, noFloor:true },
 
     /* ----- 1.6 HDi Diesel (DV6) — £680 ----- */
     { service:'Belt / Wet Belt Replacement', make:'Peugeot',
@@ -4529,12 +4534,12 @@ body.has-webgl .ts-belt-svg-fallback{ display:none }
       engines:['2.0 HDi'],
       yearFrom:2008, yearTo:2017, from:740, noFloor:true },
 
-    /* ----- 1.5 BlueHDi Diesel (DV5) — £790
+    /* ----- 1.5 BlueHDi Diesel (DV5) — £750
        External dry belt paired with an internal cam-linking chain. */
     { service:'Belt / Wet Belt Replacement', make:'Peugeot',
       models:['208','308','2008','3008','5008','Partner'],
       engines:['1.5 BlueHDi'],
-      yearFrom:2018, yearTo:2026, from:790 },
+      yearFrom:2018, yearTo:2026, from:750 },
 
     /* ----- 2.0 / 2.2 / 2.3 HDi Commercial Diesel (PUMA/DW/BlueHDi) — £980 ----- */
     { service:'Belt / Wet Belt Replacement', make:'Peugeot',
@@ -5367,15 +5372,15 @@ body.has-webgl .ts-belt-svg-fallback{ display:none }
                'D2 2.0 Diesel','D3 2.0 Diesel','D4 2.0 Diesel','D5 2.0 Diesel'],
       yearFrom:2014, yearTo:2026, from:1250 },
 
-    /* ----- Vauxhall Corsa 1.2 PureTech (Stellantis EB2 wet belt) — £657 -----
+    /* ----- Vauxhall Corsa 1.2 PureTech (Stellantis EB2 wet belt) — £680 -----
        Corsa-specific workshop rate, set per Wigan Wetbelts pricing. Fixed
        price (no upper bound) so the customer sees a clean "Estimated From
-       £657 + VAT" figure rather than a range. noFloor:true bypasses any
-       legacy £750 wet-belt clamp so the £657 quotes as supplied. */
+       £680 + VAT" figure rather than a range. noFloor:true bypasses any
+       legacy £750 wet-belt clamp so the £680 quotes as supplied. */
     { service:'Belt / Wet Belt Replacement', make:'Vauxhall',
       models:['Corsa'],
       engines:['1.2 PureTech','1.2 Turbo PureTech'],
-      yearFrom:2019, yearTo:2023, from:657, noFloor:true },
+      yearFrom:2019, yearTo:2023, from:680, noFloor:true },
 
     /* ----- Vauxhall 1.2 PureTech (rest of range) — £1150 -----
        Astra/Crossland/Mokka/Grandland keep their higher dealer-premium
@@ -5420,11 +5425,11 @@ body.has-webgl .ts-belt-svg-fallback{ display:none }
       models:['Qashqai','Juke','Note'],
       engines:['1.5 dCi'], yearFrom:2014, yearTo:2020, from:1100 },
 
-    /* ----- Peugeot 1.2 PureTech Stellantis EB2 wet belt (£757) ----- */
+    /* ----- Peugeot 1.2 PureTech Stellantis EB2 wet belt — £750 (in spec range) ----- */
     { service:'Wet Oil Pump Belt Replacement', make:'Peugeot',
       models:['108','208','308','2008','3008','408','5008','Partner'],
       engines:['1.2 PureTech'],
-      yearFrom:2012, yearTo:2026, from:757 },
+      yearFrom:2012, yearTo:2026, from:750, noFloor:true },
 
     /* ----- Kia 1.6 CRDi Smartstream U3 wet oil pump belt (£1150) ----- */
     { service:'Wet Oil Pump Belt Replacement', make:'Kia',
@@ -7562,27 +7567,51 @@ body.has-webgl .ts-belt-svg-fallback{ display:none }
       // grouped as: Customer → Vehicle → Job → Estimate → Notes → Source.
       // Keys use human-readable labels (with spaces) so the FormSubmit
       // `table` template renders them directly as the row labels.
+      // ---- Phone-first scannable subject line ----
+      // The subject line is the first thing the workshop sees in their
+      // phone's lock-screen notification. We pack the critical info
+      // (name, reg, job type) into it so the team can triage at a
+      // glance without opening the message.
+      var quickReg = (reg && reg.toUpperCase()) || 'NO REG';
+      var quickName = name || 'No name';
+      var quickJobShort = (function(){
+        if (!job) return 'Enquiry';
+        if (job.indexOf('Timing Belt') !== -1)  return 'Timing/Wet Belt';
+        if (job.indexOf('Timing Chain') !== -1) return 'Timing Chain';
+        if (job.indexOf('Diagnosis')   !== -1) return 'Diagnosis';
+        return job;
+      })();
+      var phoneSubject = 'QUOTE: ' + quickName + ' · ' + quickReg + ' · ' + quickJobShort;
+
+      // ---- Phone-first scannable body ----
+      // First column = single-glance summary fields (name / phone / reg /
+      // job / preferred date), so anyone opening the email on a phone
+      // gets the actionable info in the first half-screen. Detailed
+      // fields (vehicle spec, quote breakdown, service includes etc.)
+      // follow afterwards for the full record.
       var payload = {
         // Hidden FormSubmit configuration
-        _subject:       'New Wigan Wetbelts Quote Enquiry',
+        _subject:       phoneSubject,
         _template:      'table',
         _captcha:       'false',
         _autoresponse:  customerAutoReply,
 
-        // -------- Customer Details --------
-        'Customer Name':           name,
-        'Phone Number':            phone,
+        // -------- QUICK SUMMARY (phone-first, top of email) --------
+        'Name':                    name,
+        'Phone':                   phone,
+        'Registration':            quickReg,
+        'Job Type':                job  || 'Not provided',
+        'Preferred Date':          date || 'Not provided',
+
+        // -------- Contact Details --------
         'Email Address':           email || 'Not provided',
         'Preferred Contact Method': contact,
 
         // -------- Vehicle Details --------
-        'Vehicle Registration':    reg,
         'Year':                    year   || 'Not provided',
         'Make':                    make   || 'Not provided',
         'Model':                   model  || 'Not provided',
         'Engine':                  engine || 'Not provided',
-        'Job Type':                job    || 'Not provided',
-        'Preferred Date':          date   || 'Not provided',
 
         // -------- Quote Estimate --------
         'Estimated Repair Pricing': dealerRangeLine,
